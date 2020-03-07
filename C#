@@ -48,3 +48,19 @@ Console.WriteLine(19%5);//求19除以5的余数，输出4（商3余4）
 int number = 29;
 Console.WriteLine(number%2);//求number除以2的余数
 如果输出0,表示没有余数，即number能够被2整除（是偶数）；如果输出1，表示有余数，即number不能被2整除（是奇数）。
+
+C#的算术运算符（三）
+++，叫做自加运算符。比如你今年18岁，明年长了一岁，用代码写出来是这样：age++;与age=age+1;作用相同，都是变量的值+1。
+--，叫做自减运算符。
+
+另外，age++;与age--;也可以写作++age;或--age;
+但请注意：如果与其他运算在同一语句中，++写在变量前面或后面，算法不一样，请看下例：
+Console.WriteLine(age++);作用等同于下面两句：
+  Console.WriteLine(age);//先打印
+  age=age+1;//后自加
+
+Console.WriteLine(++age);作用等同于下面两句：
+  age=age+1;//先自加
+  Console.WriteLine(age);//后打印
+
+
