@@ -120,6 +120,6 @@ Console.WriteLine(b);
 继续计算两个大于号，得到：bool b=false&&false;
 最后的结果当然是false.
 
-
+外层的if (userName == "admin") 会被首先判断，如果为 false ，就会输出“用户名错误！”；如果为 true ，再判断内层的if (password == "bj2022")。
 
 
