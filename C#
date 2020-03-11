@@ -214,8 +214,6 @@ Console.Write( arr[1,0] );
 调试程序：Visual Studio添加断点，快捷键F9，调试运行快捷键F5，单步执行F10.
 
 
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -224,20 +222,20 @@ using System.Threading.Tasks;
 
 namespace MyApp1
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			const double Pi = 3.14159265359;
-			Console.WriteLine("Hello world!");
-			Console.WriteLine(Pi);
-			Console.WriteLine((double)3.6);
-			Console.WriteLine(9 + "2.2");//num9 transform the string,the result is 92.2
-			Console.WriteLine(5 / 10);//result is 0, just save the front
-                       
-            for (int x = 1; x <8; x++)//循环7行
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const double Pi = 3.14159265359;
+            Console.WriteLine("Hello world!");
+            Console.WriteLine(Pi);
+            Console.WriteLine((double)3.6);
+            Console.WriteLine(9 + "2.2");//num9 transform the string,the result is 92.2
+            Console.WriteLine(5 / 10);//result is 0, just save the front
+
+            for (int x = 1; x < 8; x++)//循环7行
             {
-                for (int y = 1; y <8; y++)//循环7列
+                for (int y = 1; y < 8; y++)//循环7列
                 {
                     if (x == y || x == (8 - y))//对角线打印O
                     {
@@ -265,7 +263,7 @@ namespace MyApp1
                 }
             }
             //Console.WriteLine("分数最高是的{0}，分数是{1}", name, result);
-                Console.WriteLine("分数最高的是" + name + ",分数是" + result);
+            Console.WriteLine("分数最高的是" + name + ",分数是" + result);
 
             Console.WriteLine("---------------");
 
@@ -287,29 +285,29 @@ namespace MyApp1
             Console.WriteLine("---------------");
             string in_name;
             Console.Write("Please input your name:");
-            in_name=Console.ReadLine();
-            Console.WriteLine("Hello,{0}!",in_name);
-            Console.WriteLine("Hello,"+in_name+"!");
+            in_name = Console.ReadLine();
+            Console.WriteLine("Hello,{0}!", in_name);
+            Console.WriteLine("Hello," + in_name + "!");
 
             Console.WriteLine("---------------");
             string[] name_shuru = new string[2];
             int[] score_shuru = new int[2];
             for (int i = 0; i < name_shuru.Length; i++)
             {
-                Console.Write("Please input the number of "+(i+1)+" name:");
+                Console.Write("Please input the number of " + (i + 1) + " name:");
                 name_shuru[i] = Console.ReadLine();
                 Console.Write("Please input the number of " + (i + 1) + " score:");
-                score_shuru[i] = int.Parse(Console.ReadLine()) ;
+                score_shuru[i] = int.Parse(Console.ReadLine());
 
             }
             //Calculate the total and average score
             int sum_shuru = 0, avg = 0;
-            for (int i = 0; i < score_shuru.Length; i++) 
+            for (int i = 0; i < score_shuru.Length; i++)
             {
-                sum_shuru += score_shuru[i];            
+                sum_shuru += score_shuru[i];
             }
             avg = sum_shuru / name_shuru.Length;
-            Console.WriteLine("The total score is:"+sum_shuru+", The average score is:"+avg);
+            Console.WriteLine("The total score is:" + sum_shuru + ", The average score is:" + avg);
 
             Console.WriteLine("-----The final project----------");
             string[] final_name = new string[8] { "景珍", "林惠洋", "成蓉", "洪南昌", "龙玉民", "单江开", "田武山", "王三明" };
@@ -331,10 +329,5 @@ namespace MyApp1
             }
 
         }
-	}
+    }
 }
-
-
-
-
-
