@@ -354,3 +354,11 @@ class Child
 创建一个小朋友类的对象，也叫类的实例化，如：
 Child xiaoMing=new Child(); //实例化了Child类的对象
 
+实例化对象在Main方法中，类名 对象名=new  类名（）；<br>
+Child xiaoming=new Child();
+有了对象后可以访问他的字段属性和方法
+访问字段：对象名.字段="值";  xiaoming._name="小明";
+调用方法：对象名.方法名（）;   xiaoming.PlayBall();
+输出字段：对象名.字段    xiaoming._name
+
+
