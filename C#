@@ -361,4 +361,4 @@ Child xiaoming=new Child();
 调用方法：对象名.方法名（）;   xiaoming.PlayBall();
 输出字段：对象名.字段    xiaoming._name
 
-
+public关键字，private关键字
