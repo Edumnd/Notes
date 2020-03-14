@@ -362,3 +362,25 @@ Child xiaoming=new Child();
 输出字段：对象名.字段    xiaoming._name
 
 public关键字，private关键字
+
+public是公共字段，可以在类外被修改（不安全）
+private 是私有字段 无法在类外访问（无法使用）
+
+封装：隐藏对象的信息，留出访问的接口
+在C#中，通常使用属性对字段进行封装。
+隐藏字段，公开属性
+利用get(读)，set(写)
+public string 
+get{return a}
+set{a = value}
+
+
+class Child
+    {
+        private string _sex;    //隐藏字段
+        public string Sex       //公开属性
+        {
+            get { return _sex; }     //get,set为访问器   get为读   set为写
+            set { _sex = value; }	//如果只有get为只读属性，不能修改
+        }
+    }
