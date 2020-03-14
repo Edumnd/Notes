@@ -384,3 +384,14 @@ class Child
             set { _sex = value; }	//如果只有get为只读属性，不能修改
         }
     }
+
+属性封装技巧：
+private 数据类型 _字段名称;
+public 与上数据类型保持一致 字段名称(首字母大写)
+{
+	get{ return _字段名称; }//读访问器
+	set{ _字段名称 = value; }//写访问器
+}
+新字段名称在Main中的也要引用出来。
+
+封装快捷键：Ctrl + R + E
