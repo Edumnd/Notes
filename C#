@@ -399,3 +399,12 @@ public 与上数据类型保持一致 字段名称(首字母大写)
 将set属性删除就是只读属性，则Main中不能为属性赋值了，想要赋值
 1.可以得在Child.cs中为字段直接赋值：private string sex="男";同样的也不能在Main中修改；
 2.用构造方法
+
+在set访问器中添加条件，约束性赋值：
+public int Age
+        {
+            get => age;
+            set { if (value >= 3 && value <= 7) age = value; }
+        }
+不合理赋值语句不会执行
+
