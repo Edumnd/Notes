@@ -450,3 +450,11 @@ Child child = new Child();//调用构造方法（构造方法的作用：为属�
             //1、构造方法通常声明位public（如果需要的话也可以是private），
             //2、构造方法没有返回值类型，
             //3、构造方法名字必须和类名相同。
+
+this关键字表示当前对象，可以用来调用类的字段、属性和方法。
+比如用this.sex用来区分形参sex。
+this.sex=sex;
+this 表示的是当前对象！没有this的是表示形参sex
+this.EatSugar();
+用this来调用当前的对象的属性和方法！
+
