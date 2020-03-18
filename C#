@@ -484,3 +484,43 @@ c2.Name = "刘小勇";     //c2遥控器改变所指向的电视机节目，改�
 Console.WriteLine(c1.Name);//电视机节目为刘小勇
 Console.WriteLine(c2.Name);//电视机节目为刘小勇
 
+struct 结构体也可以象类一种包含字段、属性和方法。
+   例：
+  struct Dog
+    {
+        string _name;
+
+        //结构中可以定义属性
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public void Sing()
+        {
+            Console.WriteLine("汪汪");
+        }
+
+        public Dog(string name)//结构中只能显式定义有参构造方法，且要把所有字段赋值
+        {
+            _name = name;
+        }
+    }
+
+static Dog dog;//结构也可以不用实例化对象，即可将=new Dog()去除，定义在Main方法之外
+Main方法中
+//Dog dog = new Dog();
+            dog.Name ="小白";
+            Console.WriteLine("The Name of "+dog.Name);
+            dog.Sing();
+结构与类的区别：
+结构是值类型，类是引用类型；
+不能为结构中的字段赋初始值；
+结构中的构造方法中必须为所有字段赋值；
+不能为结构显式定义无参的构造方法；
+结构类型的对象可以不实例化，可以定义在Main方法之外；
+结构与类的共同点：
+结构中可以象类一样定义字段、属性和方法。
+
+
