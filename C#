@@ -556,3 +556,35 @@ static void Main()
 }
 二种传参结果会不同，值类型传参显示的年龄还是5，引用类型传参显的的年龄是6。
 
+
+ref作用是使得值类型形参按引用类型来传参
+例如：
+static void Growth(ref int age)//ref将值类型形参age变成了引用类型形参
+        {
+            age++;
+        }
+        static void Main()
+        {
+            int age = 5;
+            Growth(ref age);
+            Console.WriteLine("我现在{ }岁了!",c1.Age);
+        }
+    }  
+输出的结果为6。
+
+
+out作用是按引用类型传参并获取方法的多个计算结果，可以返回多个值
+例如：
+static void Growth(int age, out int lastYear, out int nextYear)
+{
+	lastYear = age - 1;
+        nextYear = age + 1;
+}
+	
+static void Main()
+{
+	int age_out = 7;
+        int ly, ny;//去年的年龄，明年的年龄
+        Growth(age_out, out ly, out ny);
+        Console.WriteLine("我明年{0}岁，去年{1}岁!", ny, ly);
+}
