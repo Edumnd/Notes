@@ -524,3 +524,35 @@ Main方法中
 结构中可以象类一样定义字段、属性和方法。
 
 
+枚举：枚举是值类型，枚举中不能定义字段属性和方法，枚举值是从0递增的整数(Gender)0
+// <summary>
+/// 性别类型
+/// </summary>
+enum Gender
+{
+    男, 女
+}
+//同时在类和方法中将sex变量的类型全改成Gender类型，如：private Gender sex;
+
+
+方法传参中的值类型参数和引用类型参数
+例：
+static void Growth(Child child)//引用类型参数，按引用传参
+{
+	child.Age++;
+	Console.WriteLine(“我又长大了一岁!”);
+}
+static void Growth(int age)//值类型参数，按值传参
+{
+	age++;
+	Console.WriteLine(“我又长大了一岁!”);
+}
+static void Main()
+{
+	Child c1=new Child(“小明”,Gender.男,5);
+	Growth(c1);//按引用传参，方法修改形参，通常实参也会被修改
+	Growth(c1.Age);//按值传参，方法修改形参，实参不会被修改
+	Console.WriteLine(“我现在{}岁了!”,c1.Age);
+}
+二种传参结果会不同，值类型传参显示的年龄还是5，引用类型传参显的的年龄是6。
+
