@@ -727,3 +727,10 @@ public Dog(string name):base(name){ }
     {
         abstract public void spirits();
     }
+
+密闭类 ：声明为sealed的类；  不能通过继承来修改（不可继承，不是不可修改，当然，无法继承导致了无法修改），禁止产生派生类。
+密闭方法：声明为sealed的方法； 不能重写
+
+1、如果是基类方法不希望子类对其重写，就不声明为virtual，基类方法不被标记virtual ，派生类方法无法进行重写
+2、如果是派生类不希望其子类（即派生类的派生类）对其进行重写，同时是override重写，就可以使用sealed机制（即同时使用override和sealed）
+若派生类中的重写方法（用override修饰的方法）不想再被重写，则可以同时用override和sealed进行修饰。
