@@ -939,3 +939,103 @@ dog._age=2;
 dog++;
 dog.ShowAge();
 
+
+泛型
+1、什么是泛型类
+泛型类就是一个模子，，放入类型的材料（字段属性方法），可以塑造出想要的产品。
+2、语法
+class Cage<T>//这是一个笼子类，这是一个泛型类，类名后加上一对<>,加上一个泛型参数（类类型参数）
+{
+T[] petArray;//定义T类型的数组
+public void PutIn(T pet){···}//方法 （放入）
+public T TakeOut(int index){···}//方法 （取出），占位符T，cage类变为具体类时，T相应的变成具体数据类型
+}
+说明：T为占位符。类型：为类类型。
+
+//实例化
+var dogCage=new Cage<Dog>();//得到狗狗笼子
+var catCage=new Cage<Cat>();//得到猫咪笼子
+
+3、为什么需要泛型
+用基类或者公共的接口，甚至是所有类的基类object，也可以实现一个Cage类，但是类型态宽泛，需要显示转换类型，并且判断真实类型是什么。
+只有需要的类型才会被实例化。
+
+4、泛型使用
+声明一个泛型类->引用泛型->构造实例
+泛型实例化：
+class Cage<T>{.....} //泛型类声明
+class Cage<Dog>{···}
+
+Cage<Dog> dogCage; //类型的引用
+dogCage = new Cage<Dog>(); //构造实例
+var dogCage = new Cage<Dog>();
+
+泛型类优势：
+1）代码量更小，无论多少种笼子，我们只需要一个实现
+2）只有需要的类型才会被实例化
+3）易于维护，修改模板，所有的实例都将改变
+
+泛型类就是相当于一个模板，然后我去给这个模板传递什么参数值然后会根据我传递的这个值去生产出来个性化的东西
+
+泛型类与模板的区别？  泛型类声明定义就是先设计一个可以传入各种类型的“形参”，因此他的实例化过程也同时需要传入一个类（实参）
+
+然后泛型类定义的方法是：/T是一中类型，可能是猫啊狗啊的。然后根据这个传递的类型，其实有点类似于实参，然后我们去创建出不哦她那个的对象来进行处理，可以减少编写重复的代码
+
+完整实例代码：
+using System
+namespace MyArrayApplication
+{
+    public class Array<T>
+    {
+        public int index;
+        T[] a;
+        public Array(int num)
+        {
+            a = new T[num];
+        }
+        public T GetArray(int index)
+        {
+            return a[index];
+        }
+        public void SetArray(int index, T value)
+        {
+            a[index] = value;
+        }
+    }
+    public class Print 
+    {
+        static void Main(string[] args)
+        {
+           
+            Array<char> b = new Array<char>(5);
+            for (int i = 0; i < 5; i++)
+            {
+                b.SetArray(i, (char)(i + 98));
+                Console.Write(b.GetArray(i)+" ");             
+            }
+            Array<double> d = new Array<double>(20);
+            for (int k = 0; k< 20; k++)
+            {
+                d.SetArray(k, Convert.ToDouble(k + 5.2));
+                Console.Write(d.GetArray(k) + " ");
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+泛型就是在不确定类的参数类型和返回类型时，设置一个变量来代替这个固定的类型。当创建类实例时，在给这个变量赋对应类类型值，这样就可以实现一个类，输出不同类型的值和方法； 
+不用老师的例子，用一个给数组赋值输出数组的例子更好理解；比如设置一个类，构造函数初始化一个数组，数组类型为int,有给数组赋值方法和获取数组值的方法，在此注意：数组的类型int和获取数组值的方法的返回值类型都为int，如果实例此类调用方法，实参和返回值类型也必须是int；就此限定死了此类的实例； 如果想要一个设置char类型的实例，还得必须创建一个新的char的类和方法，才能实现；这样代码工作量就会很大；如果使用泛型，用变量<T>代替固定类型int或char,这样在实例化的时候，将T赋不同类型（int、double、char）,这样就可以获得想要的返回值类型，从而实现了一个模板，只变一个参数T 就能实现相同的功能；
+上面给出的例子。只需要把所有<T>去掉，后面的T全改为int或char 就能变为普通类了。对比理解非常简单了
+
+var：
+C# 中的var关键字
+var 是3.5新出的一个定义变量的类型 其实也就是弱化类型的定义 VAR可代替任何类型 编译器会根据上下文来判断你到底是想用什么类型的 至于什么情况下用到VAR 我想就是你无法确定自己将用的是什么类型 就可以使用VAR 类似 OBJECT 但是效率比OBJECT高点。
+或者通俗的讲：
+var可以理解为匿名类型，我们可以认为它是一个声明变量的占位符。它主要用于在声明变量时，无法确定数据类型时使用。
+使用var定义变量时有以下四个特点:
+1. 必须在定义时初始化。也就是必须是var s = “abcd”形式，而不能是如下形式: var s; s = “abcd”;
+2. 一但初始化完成，就不能再给变量赋与初始化值类型不同的值了。
+3. var要求是局部变量。
+4. 使用var定义变量和object不同，它在效率上和使用强类型方式定义变量完全一样。
+
