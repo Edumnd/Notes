@@ -1103,3 +1103,23 @@ Cat b = new Cat("66");
 Dog dog = new Dog("A");
 b.IsHappy<Dog>(dog);
 
+
+泛型接口
+1、泛型接口允许我们将接口成员的参数和返回类型设置为泛型参数的接口。
+2、语法
+interface IMyself<T>{//可以写多个泛型参数
+  T Myself(T self);//泛型参数可以出现在泛型成员的定义当中，可以出现在参数位置，也可以出现在返回值位置，可以接一个泛型参数，也可以接多个泛型参数
+}//和反省语法类似
+3、实现泛型接口语法
+class A<T>:IMyself<A>{
+  public A Myself(A self);//类型参数可以是实现类本身或者其他类型
+}
+4、代码示例
+interface ILearn<A>{
+void Act(A cmd);//学习技能的接口
+}
+class Labrador:Dog,ILearn<Sit>{
+public void Act(Sit cmd);
+}
+
+
