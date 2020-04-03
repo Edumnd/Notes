@@ -1154,13 +1154,62 @@ List<T>不会有装箱拆箱的性能问题，但是存取速度较慢。
 另外注意调用这些接口时注意这些接口的不同重载,这些泛型接口的重载不仅针对对同一个集合类有不同重载，因不同集合类的不同也有不同重载
 
 List<Dog> list = new List<Dog>();
-            list.Add(new Dog("A"));
-            list.Add(new Dog("B"));
-            list.Add(new Dog("C"));
-            list.RemoveAt(0);
+list.Add(new Dog("A"));
+list.Add(new Dog("B"));
+list.Add(new Dog("C"));
+list.RemoveAt(0);
             for (int i = 0; i < list.Count; i++)
             {
                 list[i].Sing();
             }
 	    
 
+1、字典Dictionary<TKey,Tvalue>
+字典容器存储的是一系列的键值对，每个值对应一个唯一的键。键的意义在于，我们可以通过键相对高效的访问到值。
+2、字典操作 dictionary-->java.Map
+数量 Count  
+添加  Add(key,value)
+删除  Remove
+访问  [key]
+3、栈(先进后出，后进先出)
+出栈 Pop
+入栈 Push
+获取栈顶元素  Peek
+4、队列
+先进先出容器，类似一个两端开口的羽毛球筒
+出队  Dequeue
+入队  Enqueue，有返回值
+
+list以及数组只能通过索引访问，字典可以通过键访问成员。键一般就是常用的数据类型的值，值可以是对象，键与值是字典类的全部，通过“键"去查“值”。
+
+代码示例：
+Console.WriteLine("-------------Dictionary集合-----------");
+Dictionary<string, Dog> dic = new Dictionary<string, Dog>();
+dic.Add("A", new Dog("A"));
+dic.Add("B", new Dog("B"));
+dic.Add("C", new Dog("C"));
+dic["A"].Sing();
+
+Console.WriteLine("-------------栈Stack集合-----------");
+Stack<Pet> stack = new Stack<Pet>();
+stack.Push(new Bird("D")); 
+stack.Push(new Fish("E"));
+stack.Push(new Bird("F"));
+
+stack.Peek().printName();//显示栈顶元素
+stack.Pop();//出栈
+stack.Peek().printName();
+
+Console.WriteLine("-------------队列Queue集合-----------");
+Queue<Pet> queue = new Queue<Pet>();
+queue.Enqueue(new Bird("G"));
+queue.Enqueue(new Bird("H"));
+queue.Enqueue(new Fish("I"));
+
+Pet pet = null;
+pet = queue.Dequeue();
+pet.printName();
+pet = queue.Dequeue();
+pet.printName();
+pet = queue.Dequeue();
+pet.printName();
