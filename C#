@@ -1272,4 +1272,23 @@ class Program
 }
 
 
+Lambda表达式
+1、什么是匿名方法
+delegate void ActCute();
+ActCute del;
+del=delegate(){//方法的具体内容};//用委托关键字delegate声明一个匿名方法
+del = delegate(参数列表){方法体};
+2、Lambda表达式
+del=delegate(){};
+del=()=>{···};
+del=(参数列表)=>{方法体};
+
+
+C#2.0的声明方法为 del=delegate(){...};
+C#3.0的声明方法为 del=()=>{...}; 叫做Lambda表达式，用=>取代了delegate的命名方式
+
+//lambda 表达式绑定匿名委托
+del += () => { Console.WriteLine("do nothing"); };
+
+
 
