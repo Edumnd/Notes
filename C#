@@ -1291,4 +1291,61 @@ C#3.0的声明方法为 del=()=>{...}; 叫做Lambda表达式，用=>取代了del
 del += () => { Console.WriteLine("do nothing"); };
 
 
+事件
+1、发布者和订阅者
+发布者：通知某件事情发生的
+订阅者：对某件事情关注的
+2、事件触发和注册
+触发：事件发生时，会通知所有关注该事件的订阅者。
+注册：想在事件发生时被通知，必须注册以表示关注。
+3、用程序语言解释
+事件发生时，通知订阅者，就是调用订阅者的注册函数。注册，就是告诉发布者调用哪一个注册函数。
+4、事件声明
+需要用关键字event，需要声明事件的访问类型和委托类型依据事件的名称
+delegate void Handler();//委托
+public event Handler NewDog;//Handler 是委托类型，NewDog为事件名
+/* event是事件的关键字*/
+//NewDog是一个成员，并且会被隐式自动初始化为null
+5、事件订阅
+NewDog + = 方法 //关注
+NewDog - = 方法 //取消关注
+方法可以是，实例方法，静态方法，匿名方法、Lambda表达式
+6、事件触发
+if（NewDog!=null）{
+   NewDog();
+}
+7、事件可以理解为一种封装的受限制的委托，就是对委托进行的一种封装，只有两种，注册(+=)和取消(-=)。委托当中包含着订阅者的注册函数，事件触发就是调用委托当中的回调函数。
+
+代码示例：
+
+public delegate void Handle();
+public static event Handle NewBird;//定义为static是因为没有Bird对象的时候也是可以调用的
+public Bird(string name)
+{
+    this.name = name;
+    if (NewBird != null)
+    {
+        NewBird();//触发事件
+    }
+}
+
+class Client
+    {
+        //定义事件方法
+        public void WantADog()
+        {
+            Console.WriteLine("Great,I want to see the new bird");
+        }
+    }
+
+Console.WriteLine("-------------事件-----------");//实际上也是观察者模式设置的过程
+Client client_1 = new Client();
+Client client_2 = new Client();
+//绑定事件方法
+Bird.NewBird += client_1.WantADog;//注册事件
+Bird.NewBird += client_2.WantADog;//注册事件
+Bird bird_event = new Bird("event_bird");
+
+
+
 
