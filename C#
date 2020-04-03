@@ -1123,3 +1123,44 @@ public void Act(Sit cmd);
 }
 
 
+集合：一种存放多个数据的容器类型。
+最简单的集合：数组Array（完整的类型是System.Array）
+
+预定义常用集合：
+动态数组：ArrayList
+列表：List
+字典：Dictionary
+队列：Queue
+栈：Stack
+
+使用集合的原因：比数组更为强大，实现了更加丰富的功能。可以提高我们的开发效率。
+
+动态数组ArrayList：
+优点：
+1、初始化，可以不指定大小（数组初始化必须指定大小）；
+2、获取长度，使用Count属性；
+3、添加Add；
+4、删除Remove（根据对象），RemoveAt（根据索引）；
+5、访问 [index]。
+
+缺点：
+1、比数组耗费更多的内存；
+2、存取速度不如数组那么快；
+3、内部数据类型为object，需要装箱/拆箱，Object装箱、拆箱，性能损耗。
+
+ArrayList是类型不安全，而且有装箱拆箱的性能问题，所以有了List<T>
+List<T>不会有装箱拆箱的性能问题，但是存取速度较慢。
+列表类继承了很多的泛型接口,另外其他泛型的集合类也一般继承了这些泛型接口，因此一版有这些操作（当然有些操作是某些集合类定制的）
+另外注意调用这些接口时注意这些接口的不同重载,这些泛型接口的重载不仅针对对同一个集合类有不同重载，因不同集合类的不同也有不同重载
+
+List<Dog> list = new List<Dog>();
+            list.Add(new Dog("A"));
+            list.Add(new Dog("B"));
+            list.Add(new Dog("C"));
+            list.RemoveAt(0);
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].Sing();
+            }
+	    
+
