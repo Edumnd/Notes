@@ -1213,3 +1213,63 @@ pet = queue.Dequeue();
 pet.printName();
 pet = queue.Dequeue();
 pet.printName();
+
+
+委托、事件和lambda表达式
+1、委托
+就是持有一个或者多个方法的对象并且该对象可以执行，可以传递。可以安全的调用其他对象的方法。
+2、声明委托
+可以声明，它是一种引用类型。用delegate声明：delegate 返回值类型 方法名();
+例如：声明一个卖萌的委托类型 delegate void ActCute();
+3、定义委托类型的对象
+既然委托是一种类型，就可以定义该类型的对象。例如ActCute  actCute;
+4、给委托对象赋值
+例如;
+class Dog{
+public void WagTai(){···}
+}
+actCute=dog.WagTail;//没有圆括号
+5、使用委托类型
+想调用函数一样使用委托类型。
+actCute();//像调用函数一样使用委托类型
+actCute = dog.WagTail;
+delegate string wang(int a); //这是一个代理有参数，有返回值的代理。
+
+委托与继承相似，都是复用代码，继承是类级别的复用，委托是方法级别的复用。
+可以保存一些列方法；
+调用方式从声明中的变量获得，例如del();
+
+代码示例：
+class Bird
+{
+    public void innocentLook()
+    {
+        Console.WriteLine(name + " innocent look");
+    }
+}
+
+class Fish
+{
+    public void WagTail()
+    {
+        Console.WriteLine(name + " wag Tail");
+    }
+}
+
+class Program
+{
+    delegate void ActCute();//声明委托，这个代理是无参，无返回值的代理，所代理的方法也是无参，无返回值。
+    static void Main(string[] args)
+    {
+	Console.WriteLine("-------------委托-----------");
+        ActCute del = null;//给初始化的代理变量赋值
+        Fish fish = new Fish("J");
+        Bird bird_d = new Bird("K");
+        del = fish.WagTail;//没有括号，只是让委托持有方法。这里的方法不能加圆括号，主要是因为这里是赋值，而并非调用
+        del += bird.innocentLook;//这里的+=中间是不能有空格的。如果没有+号，则后一个方法会覆盖前一个方法。
+        del();//执行委托
+    }
+}
+
+
+
