@@ -1347,5 +1347,3 @@ Bird.NewBird += client_2.WantADog;//注册事件
 Bird bird_event = new Bird("event_bird");
 
 
-
-
